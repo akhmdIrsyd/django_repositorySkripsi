@@ -45,8 +45,6 @@ class User(AbstractUser):
                 m = dosen.objects.get(username=self.id)
                 m.username = self
                 m.delete()
-        else:
-            create_dosen()
 
         super(User, self).save(force_insert, force_update, *args, **kwargs)
         self.__original_mode = self.user_type
