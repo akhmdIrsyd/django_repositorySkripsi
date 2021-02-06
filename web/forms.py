@@ -11,7 +11,7 @@ from bootstrap_modal_forms.forms import BSModalModelForm
 # creating a form
 USER_CHOICES = (
     (1, 'Mahasiswa'),
-    (2, 'Dosen'),
+    (2, 'Dosen')
     
 )
 

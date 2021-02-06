@@ -27,18 +27,26 @@ class User(AbstractUser):
 
 
     def save(self,force_insert=False, force_update=False, *args, **kwargs):
+        print(self.id)
         if self.user_type != self.__original_mode:
             #  then do this
             if self.user_type == 2:
-                m = mahasiswa.objects.get(nim=self.id)
-                m.nim = self
-                m.delete()
-                dosen.objects.create(username=self)
+                if self.id== None :
+                    pass
+                else:
+                    dosenobj=dosen(username=self.username)
+                    dosenobj.save()
+                    m = mahasiswa.objects.get(nim=self.id)
+                    m.nim = self
+                    m.delete()
+                
             elif self.user_type == 1:
                 mahasiswa.objects.create(nim=self)
                 m = dosen.objects.get(username=self.id)
                 m.username = self
                 m.delete()
+        else:
+            create_dosen()
 
         super(User, self).save(force_insert, force_update, *args, **kwargs)
         self.__original_mode = self.user_type

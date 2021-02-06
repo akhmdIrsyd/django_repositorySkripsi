@@ -43,6 +43,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>Useername</th>
                                             <th>Nama</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -51,6 +52,7 @@
                                         {% for row in rows %}
                                             <tr>
                                                 <td>{{ forloop.counter }}</td>
+                                                <td>{{ row.username.username }}</td>
                                                 <td>{{ row.nama }}</td>
                                                 <td>
                                                     <button type="button" id="update-dosen" class="bs-modal update-dosen btn btn-sm btn-warning" data-form-url="{% url 'update_dosen' row.pk %}">
