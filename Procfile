@@ -1,0 +1,1 @@
+web: gunicorn repasitory_fhut.wsgi --log-file -

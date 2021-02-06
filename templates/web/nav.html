@@ -1,0 +1,63 @@
+{% load static %}
+    <!-- [ navigation menu ] start -->
+    <nav class="pcoded-navbar">
+        <div class="navbar-wrapper">
+            <div class="navbar-brand header-logo">
+               <a href="{% url 'index' %}" class="b-brand">
+                   <div class="b-bg">
+                       <img class="rounded-circle" style="width:40px;" src="{% static 'assets/images/logo.png' %}" alt="activity-user">
+                   </div>
+                   <span class="b-title">Repository</span>
+               </a>
+               <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+           </div>
+            <div class="navbar-content scroll-div">
+                <ul class="nav pcoded-inner-navbar">
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Navigation</label>
+                    </li>
+                    {% if request.user.user_type == 3 %}
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
+                        <a href="{% url 'index' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                     </li>
+                     <li>   
+                        <a href="{% url 'akun' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Akun</span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'mahasiswa' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Skripsi</span></a>
+                    </li>
+                    <li>    
+                        <a href="{% url 'dosen' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Dosen</span></a>
+                    </li>
+                    <li class="nav-item pcoded-menu-caption">
+                        <label></label>
+                    </li>
+                    {% elif request.user.user_type == 2%}
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
+                        <a href="{% url 'index' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                     </li>
+                     <li>   
+                        <a href="{% url 'data_dosen' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Data Dosen</span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'skripsi_dosen' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Daftar Skripsi</span></a>
+                    </li>
+                    {% elif request.user.user_type == 1 %}
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
+                        <a href="{% url 'index' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                     </li>
+                     <li>   
+                        <a href="{% url 'data_mahasiswa' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Data Mahasiswa</span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'skripsi' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext"> Skripsi</span></a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item pcoded-menu-caption">
+                        <label></label>
+                    </li>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- [ navigation menu ] end -->

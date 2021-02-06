@@ -1,0 +1,112 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block title%}
+    <title>Bootstrap Material Admin by Bootstrapious.com</title>
+{% endblock %}
+{% block judul %}
+{% endblock %}
+{% block body %}
+                    <!-- [ breadcrumb ] start -->
+                    <div class="page-header">
+                        <div class="page-block">
+                            <div class="row align-items-center">
+                                <div class="col-md-12">
+                                    <div class="page-header-title">
+                                        {% if request.get_full_path == '/skripsi' %}
+                                        <h5 class="m-b-10">Data Skripsi</h5>
+                                        {% elif request.get_full_path == '/data_mahasiswa'%}
+                                        <h5 class="m-b-10">Data Mahasiswa</h5>
+                                        {% elif request.get_full_path == '/data_dosen'%}
+                                        <h5 class="m-b-10">Data Dosen</h5>
+                                        {% endif %}
+                                    </div>
+                                    <ul class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="{% url 'index' %}"><i class="feather icon-home"></i></a></li>
+                                        {% if request.get_full_path == '/skripsi' %}
+                                        <li class="breadcrumb-item"><a href="{% url 'mahasiswa' %}">Skripsi</a></li>
+                                        {% elif request.get_full_path == '/data_mahasiswa'%}
+                                        <li class="breadcrumb-item"><a href="{% url 'mahasiswa' %}">Data Mahasiswa</a></li>
+                                        {% elif request.get_full_path == '/data_dosen'%}
+                                        <li class="breadcrumb-item"><a href="{% url 'mahasiswa' %}">Data Dosen</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        
+                                        <div class="card-block">
+                                        
+                                        <!-- Button trigger modal 
+                                        
+                                        <button id="create-dosen" class="btn btn-primary" type="button" name="button">Tambah</button>
+                                        -->
+                                        <!-- Button trigger modal -->
+                                        <!-- table -->
+                                           
+                                        {% load widget_tweaks %}
+<form method="post" action="" enctype="multipart/form-data">
+  {% csrf_token %}
+
+ 
+
+  <div class="modal-body">
+                                        
+
+    <div class="{% if form.non_field_errors %}invalid{% endif %} mb-2">
+      {% for error in form.non_field_errors %}
+        {{ error }}
+      {% endfor %}
+    </div>
+
+    {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {% render_field field class="form-control" placeholder=field.label data-live-search="true" %}
+        <div class="{% if field.errors %} invalid{% endif %}">
+          {% for error in field.errors %}
+            <p class="help-block">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="modal-footer">
+    <button type="submit" class="submit-btn btn btn-primary">Save</button>
+  </div>
+
+</form>
+
+
+
+                                <!-- table -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- [ Main Content ] end -->
+
+
+
+
+<!-- Create tambah button -->
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+ {% block js %}
+
+ {% endblock %}

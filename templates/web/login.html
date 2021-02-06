@@ -1,0 +1,38 @@
+{% extends 'web/base_single.html' %}
+{% load static %}
+{% block title%}
+    <title>Bootstrap Material Admin by Bootstrapious.com</title>
+{% endblock %}
+{% block judul %}
+{% endblock %}
+{% block body %}
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                    <img class="rounded-circle" style="width:40px;" src="{% static 'assets/images/logo.png' %}" alt="activity-user">
+                        <p>
+                        Repository Fakultas Kehutanan
+                        </p>
+                    </div>
+                    <h3 class="mb-4">Login</h3>
+                    <form name="LoginForm" method="post">
+                  {% load widget_tweaks %}  
+                  {% csrf_token %}
+                    {% if next %}
+                        <input type="hidden" name="next" value="{{ next }}" />
+                    {% endif %}
+                 <div class="input-group mb-3">
+                        <input type="username" class="form-control" id="username" name="username"  placeholder="username" required data-msg="Please enter your username">
+                    </div>
+                    <div class="input-group mb-4">
+                        <input type="password"  name="password" id="password" class="form-control" placeholder="password" required data-msg="Please enter your password" >
+                    </div>
+                            <button type="submit" class="submit-btn btn btn-primary">Sign Up</button>
+                     </form>
+                    <div class="form-group text-left">
+                        
+                    </div>
+                    <p class="mb-0 text-muted">Do not have an account? <a href="{% url 'signup' %}"> Sign in</a></p>
+                </div>
+            </div>
+{% endblock body %}

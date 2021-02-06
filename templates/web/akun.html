@@ -1,0 +1,117 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block title%}
+    <title>Bootstrap Material Admin by Bootstrapious.com</title>
+{% endblock %}
+{% block judul %}
+{% endblock %}
+{% block body %}
+                    <!-- [ breadcrumb ] start -->
+                    <div class="page-header">
+                        <div class="page-block">
+                            <div class="row align-items-center">
+                                <div class="col-md-12">
+                                    <div class="page-header-title">
+                                        <h5 class="m-b-10">Akun</h5>
+                                    </div>
+                                    <ul class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="{% url 'index' %}"><i class="feather icon-home"></i></a></li>
+                                        <li class="breadcrumb-item"><a href="{% url 'akun' %}">Akun</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        
+                                        <div class="card-block">
+                                        
+                                        <!-- Button trigger modal -->
+                                        
+                                        <button id="create-akun" class="btn btn-primary" type="button" name="button">Tambah</button>
+                                        <!-- Button trigger modal -->
+                                        <!-- table -->
+                                        <div class="table-responsive">
+                                            <table id="example" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Username</th>
+                                            <th>Tipe User</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for row in rows %}
+                                            <tr>
+                                                <td>{{ forloop.counter }}</td>
+                                                <td>{{ row.username }}</td>
+                                                <td>{{ row.get_user_type_display }}</td>
+                                                <td>
+                                                    <button type="button" id="update-akun" class="bs-modal update-mhs btn btn-sm btn-warning" data-form-url="{% url 'update_akun' row.pk %}">
+                                                        
+                                                        <span class="fa fa-pencil-alt"></span>
+                                                    </button>
+                                                    <button type="button" class="bs-modal delete-akun btn btn-sm btn-danger" data-form-url="{% url 'delete_akun' row.pk %}">
+                                                        <span class="fa fa-trash"></span>
+                                                    </button>
+                                                </td>
+                                                
+                                                
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                </div>
+                                <!-- table -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- [ Main Content ] end -->
+
+
+
+
+<!-- Create tambah button -->
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+ {% block js %}
+ <script>
+ $(document).ready(function() {
+    $('#example').DataTable([
+    $(".bs-modal").each(function () {
+      $(this).modalForm({
+          formURL: $(this).data('form-url')
+      })
+    })
+    ]);
+} );
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+    $("#create-akun").modalForm({
+        formURL: "{% url 'signupadmin' %}"
+    });
+
+
+    
+
+});
+</script>
+ {% endblock %}
