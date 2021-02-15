@@ -21,13 +21,13 @@ ganti database ke mysql:
 3. buka repasitory_fhut/setting.py 
 4. ganti setting database
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_siswa',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+   'default': {
+      'ENGINE': 'django.db.backends.mysql',
+      'NAME': 'nama_database',
+      'USER': 'root',
+      'PASSWORD': '',
+      'HOST': 'localhost',
+      'PORT': '3306',
+   }
 }
 5. ulangi tahan cara install dari point 5
