@@ -31,3 +31,6 @@ DATABASES = {
    }
 }
 5. ulangi tahan cara install dari point 5
+
+untuk deploy ke server silahkan cek google
+
