@@ -14,6 +14,8 @@ Cara install
    python manage.py createsuperuser
 7. jalankan web:
    python manage.py runserver
+8. bukan http://127.0.0.1:8000/admin menggunakan superuser yang sudah dibuat
+9. ganti tipe user menjadi admin
 
 ganti database ke mysql:
 1. pip install folder/mysqlclient-1.4.6-cp38-cp38-win_amd64.whl
