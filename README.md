@@ -15,7 +15,8 @@ Cara install
 7. jalankan web:
    python manage.py runserver
 8. bukan http://127.0.0.1:8000/admin menggunakan superuser yang sudah dibuat
-9. ganti tipe user menjadi admin
+9. buka menu Users, pilih username superuser, ganti tipe user menjadi admin
+10. buka menu mahasiswa, pilih username superuser, hapus data
 
 ganti database ke mysql:
 1. pip install folder/mysqlclient-1.4.6-cp38-cp38-win_amd64.whl
